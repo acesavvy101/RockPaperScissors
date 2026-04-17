@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissors</title>
+</head>
+<body>
+    <script>
+        
+        function getComputerChoice () {
+            const randomNumber = Math.random() * 100; // also put () cus Math.random is a function
+            if (randomNumber<33.3) {
+                return "rock";
+            } else if (randomNumber>33.3 && randomNumber<66.6) {
+                return "paper";
+            } else {
+                return "scissors";
+            }
+        }
+        console.log (getComputerChoice());
+
+    </script>
+</body>
+</html>
