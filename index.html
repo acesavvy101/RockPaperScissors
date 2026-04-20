@@ -22,13 +22,26 @@
 
         function getHumanChoice () {
             let input = prompt ("Enter Rock/Paper/Scissors" ," ");
-            if (input === "Scissors" || input === "Rock" || input === "Paper") { // this has to be input === for all 3 , or else the || operator is gonna return true cus strings are truthy values
+
+            input = input.toLowerCase(); // THIS IS WHAT MAKES IT CASE INSENSITIVE
+
+            if (input === "scissors" || input === "rock" || input === "paper") { /* 1.  this has to be input === for all 3 , or else the || operator is gonna return true cus strings are truthy values 
+                                                                                    2.  normalize input to loweer case, AND compare it agains lowercase words to make it case insensitive!!!*/
                 return input; // what the assignment asks: "will return one of the valid choices depending on what the user inputs."
             } else {
                 return "Invalid";
             }
         }
         console.log (getHumanChoice());
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function playRound (getHumanChoice , getComputerChoice) {
+           
+        }
+        
+
     </script>
 </body>
 </html>
