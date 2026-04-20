@@ -20,6 +20,15 @@
         }
         console.log (getComputerChoice());
 
+        function getHumanChoice () {
+            let input = prompt ("Enter Rock/Paper/Scissors" ," ");
+            if (input === "Scissors" || input === "Rock" || input === "Paper") { // this has to be input === for all 3 , or else the || operator is gonna return true cus strings are truthy values
+                return input; // what the assignment asks: "will return one of the valid choices depending on what the user inputs."
+            } else {
+                return "Invalid";
+            }
+        }
+        console.log (getHumanChoice());
     </script>
 </body>
 </html>
