@@ -26,7 +26,7 @@
             input = input.toLowerCase(); // THIS IS WHAT MAKES IT CASE INSENSITIVE
 
             if (input === "scissors" || input === "rock" || input === "paper") { /* 1.  this has to be input === for all 3 , or else the || operator is gonna return true cus strings are truthy values 
-                                                                                    2.  normalize input to loweer case, AND compare it agains lowercase words to make it case insensitive!!!*/
+                                                                                    2.  normalize input to lower case, AND compare it agains lowercase words to make it case insensitive!!!*/
                 return input; // what the assignment asks: "will return one of the valid choices depending on what the user inputs."
             } else {
                 return "Invalid";
@@ -38,10 +38,31 @@
         let computerScore = 0;
 
         function playRound (humanChoice, computerChoice) {
-          
+            let safeHumanChoice = humanChoice.toLowerCase();
+
+            //this entire fuckass time my logic isnt wrong i just had some syntax issues smhhh
+             if (safeHumanChoice === "rock" && computerChoice === "scissors") {
+                alert ("you win");
+             } else if (safeHumanChoice === "scissors" && computerChoice === "paper") {
+                alert ("you win");
+             } else if (safeHumanChoice === "paper" && computerChoice === "rock") {
+                alert ("you win");
+             } else if (safeHumanChoice === "scissors" && computerChoice === "rock") {
+                alert ("you lose");
+             } else if (safeHumanChoice === "paper" && computerChoice === "scissors") {
+                alert ("you lose");
+             } else if (safeHumanChoice === "rock" && computerChoice === "paper") {
+                alert ("you lose");
+             } else if (safeHumanChoice === computerChoice) {
+                alert ("its a tie");
+             }
         }
-        
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound (humanSelection, computerSelection)
 
     </script>
 </body>
 </html>
+
