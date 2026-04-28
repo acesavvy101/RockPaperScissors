@@ -18,7 +18,6 @@
                 return "scissors";
             }
         }
-        console.log (getComputerChoice());
 
         function getHumanChoice () {
             let input = prompt ("Enter Rock/Paper/Scissors" ," ");
@@ -32,14 +31,13 @@
                 return "Invalid";
             }
         }
-        console.log (getHumanChoice());
 
         let humanScore = 0;
         let computerScore = 0;
 
         function playRound (humanChoice, computerChoice) {
             let safeHumanChoice = humanChoice.toLowerCase();
-
+            console.log (safeHumanChoice,computerChoice);
             //this entire fuckass time my logic isnt wrong i just had some syntax issues smhhh
              if (safeHumanChoice === "rock" && computerChoice === "scissors") {
                 alert ("you win");
