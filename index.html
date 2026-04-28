@@ -41,16 +41,22 @@
             //this entire fuckass time my logic isnt wrong i just had some syntax issues smhhh
              if (safeHumanChoice === "rock" && computerChoice === "scissors") {
                 console.log ("you win! rock beats scissors!");
+                console.log (`Human Score: ${++humanScore}`); //prefix increment returns the new value
              } else if (safeHumanChoice === "scissors" && computerChoice === "paper") {
                 console.log ("you win! scissors beats paper!");
+                console.log (`Human Score: ${++humanScore}`);
              } else if (safeHumanChoice === "paper" && computerChoice === "rock") {
                 console.log ("you win! paper beats rock!");
+                console.log (`Human Score: ${++humanScore}`);
              } else if (safeHumanChoice === "scissors" && computerChoice === "rock") {
                 console.log ("you lose! rock beats scissors!");
+                console.log (`Computer Score: ${++computerScore}`);
              } else if (safeHumanChoice === "paper" && computerChoice === "scissors") {
                 console.log ("you lose! scissors beats paper!");
+                console.log (`Computer Score: ${++computerScore}`);
              } else if (safeHumanChoice === "rock" && computerChoice === "paper") {
                 console.log ("you lose! paper beats rock!");
+                console.log (`Computer Score: ${++computerScore}`);
              } else if (safeHumanChoice === computerChoice) {
                 console.log ("Its a tie!");
              }
