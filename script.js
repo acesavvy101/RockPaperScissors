@@ -1,0 +1,68 @@
+function getComputerChoice () {
+    const randomNumber = Math.random() * 100; // also put () cus Math.random is a function
+    if (randomNumber<33.3) {
+        return "rock";
+    } else if (randomNumber>33.3 && randomNumber<66.6) {
+        return "paper";
+    } else {
+        return "scissors";
+    }
+}
+
+function getHumanChoice () {
+    let input = prompt ("Enter Rock/Paper/Scissors" ," ");
+
+    input = input.toLowerCase(); // THIS IS WHAT MAKES IT CASE INSENSITIVE
+
+    if (input === "scissors" || input === "rock" || input === "paper") { /* 1.  this has to be input === for all 3 , or else the || operator is gonna return true cus strings are truthy values 
+                                                                            2.  normalize input to lower case, AND compare it agains lowercase words to make it case insensitive!!!*/
+        return input; // what the assignment asks: "will return one of the valid choices depending on what the user inputs."
+    } else {
+        return "Invalid";
+    }
+}
+
+function playGame () {
+    let humanScore = 0;
+    let computerScore = 0;
+
+function playRound (humanChoice, computerChoice) {
+    let safeHumanChoice = humanChoice.toLowerCase();
+    console.log (safeHumanChoice,computerChoice);
+    //this entire fuckass time my logic isnt wrong i just had some syntax issues smhhh
+     if (safeHumanChoice === "rock" && computerChoice === "scissors") {
+        console.log ("you win! rock beats scissors!");
+        console.log (`Human Score: ${++humanScore}`); //prefix increment returns the new value
+     } else if (safeHumanChoice === "scissors" && computerChoice === "paper") {
+        console.log ("you win! scissors beats paper!");
+        console.log (`Human Score: ${++humanScore}`);
+     } else if (safeHumanChoice === "paper" && computerChoice === "rock") {
+        console.log ("you win! paper beats rock!");
+        console.log (`Human Score: ${++humanScore}`);
+     } else if (safeHumanChoice === "scissors" && computerChoice === "rock") {
+        console.log ("you lose! rock beats scissors!");
+        console.log (`Computer Score: ${++computerScore}`);
+     } else if (safeHumanChoice === "paper" && computerChoice === "scissors") {
+        console.log ("you lose! scissors beats paper!");
+        console.log (`Computer Score: ${++computerScore}`);
+     } else if (safeHumanChoice === "rock" && computerChoice === "paper") {
+        console.log ("you lose! paper beats rock!");
+        console.log (`Computer Score: ${++computerScore}`);
+     } else if (safeHumanChoice === computerChoice) {
+        console.log ("Its a tie!");
+     }
+}
+for (let i=1 ; i<=5 ; i++)  { //dont forget to declare i using 'let'
+    const humanSelection = getHumanChoice(); //calling new inputs for every round/loop
+    const computerSelection = getComputerChoice(); 
+
+    playRound(humanSelection, computerSelection); //u call the function playround using new fresh inputs for every loop
+
+}
+    if (humanScore > computerScore) {
+        console.log ("You are a winner :)");
+    } else {
+        console.log ("You are a loser Womp womp");
+    }
+} 
+playGame(); 
