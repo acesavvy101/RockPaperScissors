@@ -22,9 +22,24 @@ function getHumanChoice () {
     }
 }
 
-function playGame () {
-    let humanScore = 0;
-    let computerScore = 0;
+
+const rock = document.createElement("button");
+const paper = document.createElement("button");
+const scissors = document.createElement("button");
+
+rock.textContent = "rock";
+paper.textContent = "paper";
+scissors.textContent = "scissors";
+
+rock.addEventListener("click", playRound);
+paper.addEventListener("click", playRound);
+scissors.addEventListener("click", playRound);
+
+const div = document.querySelector("div");
+div.appendChild(rock);
+div.appendChild(paper);
+div.appendChild(scissors);
+
 
 function playRound (humanChoice, computerChoice) {
     let safeHumanChoice = humanChoice.toLowerCase();
@@ -51,18 +66,12 @@ function playRound (humanChoice, computerChoice) {
      } else if (safeHumanChoice === computerChoice) {
         console.log ("Its a tie!");
      }
-}
-for (let i=1 ; i<=5 ; i++)  { //dont forget to declare i using 'let'
-    const humanSelection = getHumanChoice(); //calling new inputs for every round/loop
-    const computerSelection = getComputerChoice(); 
 
-    playRound(humanSelection, computerSelection); //u call the function playround using new fresh inputs for every loop
-
-}
-    if (humanScore > computerScore) {
+     if (humanScore > computerScore) {
         console.log ("You are a winner :)");
     } else {
         console.log ("You are a loser Womp womp");
     }
-} 
-playGame(); 
+}
+  
+
