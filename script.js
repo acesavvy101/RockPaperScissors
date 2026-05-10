@@ -34,6 +34,13 @@ rock.textContent = "rock"; // to label the button
 paper.textContent = "paper";
 scissors.textContent = "scissors";
 
+rock.style.color= "#B3DEE2";
+rock.style.backgroundColor = "#d86d9c"
+paper.style.color= "#bfc4ff";
+paper.style.backgroundColor = "#fffabf"
+scissors.style.color= "#e89ec5";
+scissors.style.backgroundColor = "#c6e4e2"
+
 // this is how u connect the button as a user input for the function
 rock.addEventListener("click", () => playRound("rock" , getComputerChoice())); // set the arguments for the playround functions
 paper.addEventListener("click", () => playRound("paper" , getComputerChoice()));
