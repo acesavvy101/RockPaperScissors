@@ -24,8 +24,11 @@ function getHumanChoice () {
 
 
 const rock = document.createElement("button");
+rock.id = "rock"
 const paper = document.createElement("button");
+paper.id = "paper"
 const scissors = document.createElement("button");
+scissors.id = "scissors"
 
 rock.textContent = "rock"; // to label the button
 paper.textContent = "paper";
@@ -76,12 +79,17 @@ function playRound (humanChoice, computerChoice) {
         showMessage("It's a tie!");
     }
 
- 
 
      if (humanScore >= 5)  { //first to reach 5
         showMessage("You are a winner :)");
+        document.getElementById("rock").disabled = true;
+        document.getElementById("paper").disabled = true;
+        document.getElementById("scissors").disabled = true;        
     } else if (computerScore >= 5) {
         showMessage("You are a loser Womp womp");
+        document.getElementById("rock").disabled = true;
+        document.getElementById("paper").disabled = true;
+        document.getElementById("scissors").disabled = true;   
     }
 }
   
