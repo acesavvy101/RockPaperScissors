@@ -27,50 +27,61 @@ const rock = document.createElement("button");
 const paper = document.createElement("button");
 const scissors = document.createElement("button");
 
-rock.textContent = "rock";
+rock.textContent = "rock"; // to label the button
 paper.textContent = "paper";
 scissors.textContent = "scissors";
 
-rock.addEventListener("click", playRound);
-paper.addEventListener("click", playRound);
-scissors.addEventListener("click", playRound);
+// this is how u connect the button as a user input for the function
+rock.addEventListener("click", () => playRound("rock" , getComputerChoice())); // set the arguments for the playround functions
+paper.addEventListener("click", () => playRound("paper" , getComputerChoice()));
+scissors.addEventListener("click", () => playRound("scissors" , getComputerChoice()));
 
 const div = document.querySelector("div");
 div.appendChild(rock);
 div.appendChild(paper);
 div.appendChild(scissors);
 
+function showMessage (message) {
+    const p = document.createElement("p");
+    p.textContent = message; //the text content of p is the argument "message" itself
+    div.appendChild(p);
+}
+
+let humanScore = 0;
+let computerScore = 0;
 
 function playRound (humanChoice, computerChoice) {
     let safeHumanChoice = humanChoice.toLowerCase();
     console.log (safeHumanChoice,computerChoice);
     //this entire fuckass time my logic isnt wrong i just had some syntax issues smhhh
-     if (safeHumanChoice === "rock" && computerChoice === "scissors") {
-        console.log ("you win! rock beats scissors!");
-        console.log (`Human Score: ${++humanScore}`); //prefix increment returns the new value
-     } else if (safeHumanChoice === "scissors" && computerChoice === "paper") {
-        console.log ("you win! scissors beats paper!");
-        console.log (`Human Score: ${++humanScore}`);
-     } else if (safeHumanChoice === "paper" && computerChoice === "rock") {
-        console.log ("you win! paper beats rock!");
-        console.log (`Human Score: ${++humanScore}`);
-     } else if (safeHumanChoice === "scissors" && computerChoice === "rock") {
-        console.log ("you lose! rock beats scissors!");
-        console.log (`Computer Score: ${++computerScore}`);
-     } else if (safeHumanChoice === "paper" && computerChoice === "scissors") {
-        console.log ("you lose! scissors beats paper!");
-        console.log (`Computer Score: ${++computerScore}`);
-     } else if (safeHumanChoice === "rock" && computerChoice === "paper") {
-        console.log ("you lose! paper beats rock!");
-        console.log (`Computer Score: ${++computerScore}`);
-     } else if (safeHumanChoice === computerChoice) {
-        console.log ("Its a tie!");
-     }
+    if (safeHumanChoice === "rock" && computerChoice === "scissors") {
+        showMessage("You win! rock beats scissors!");
+        showMessage(`Human Score: ${++humanScore}`);
+    } else if (safeHumanChoice === "scissors" && computerChoice === "paper") {
+        showMessage("You win! scissors beats paper!");
+        showMessage(`Human Score: ${++humanScore}`);
+    } else if (safeHumanChoice === "paper" && computerChoice === "rock") {
+        showMessage("You win! paper beats rock!");
+        showMessage(`Human Score: ${++humanScore}`);
+    } else if (safeHumanChoice === "scissors" && computerChoice === "rock") {
+        showMessage("You lose! rock beats scissors!");
+        showMessage(`Computer Score: ${++computerScore}`);
+    } else if (safeHumanChoice === "paper" && computerChoice === "scissors") {
+        showMessage("You lose! scissors beats paper!");
+        showMessage(`Computer Score: ${++computerScore}`);
+    } else if (safeHumanChoice === "rock" && computerChoice === "paper") {
+        showMessage("You lose! paper beats rock!");
+        showMessage(`Computer Score: ${++computerScore}`);
+    } else if (safeHumanChoice === computerChoice) {
+        showMessage("It's a tie!");
+    }
 
-     if (humanScore > computerScore) {
-        console.log ("You are a winner :)");
-    } else {
-        console.log ("You are a loser Womp womp");
+ 
+
+     if (humanScore >= 5)  { //first to reach 5
+        showMessage("You are a winner :)");
+    } else if (computerScore >= 5) {
+        showMessage("You are a loser Womp womp");
     }
 }
   
